@@ -1,0 +1,177 @@
+.main-navbar {
+  background: white;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+/* Brand Section */
+.navbar-brand-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.brand-logo {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-logo svg {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.brand-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #1e293b;
+  margin: 0;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Spacer */
+.navbar-spacer {
+  flex: 1;
+}
+
+/* User Section */
+.navbar-user-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-shrink: 0;
+}
+
+.user-profile-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  align-items: flex-end;
+}
+
+.user-fullname {
+  font-size: 0.938rem;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.user-role-tag {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: white;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  padding: 0.25rem 0.625rem;
+  border-radius: 12px;
+  text-transform: capitalize;
+}
+
+/* Sign Out Button */
+.signout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  color: #64748b;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.signout-btn:hover {
+  background: #e0e7ff;
+  border-color: #c7d2fe;
+  color: #3b82f6;
+}
+
+.signout-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar-container {
+    gap: 1rem;
+  }
+
+  .main-navbar {
+    padding: 0.75rem 1rem;
+  }
+
+  .user-details {
+    display: none;
+  }
+
+  .brand-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .navbar-container {
+    gap: 0.75rem;
+  }
+
+  .navbar-brand-section {
+    gap: 0.5rem;
+  }
+
+  .brand-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-logo svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .navbar-spacer {
+    flex: 1;
+  }
+
+  .signout-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .signout-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+}
