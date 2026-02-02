@@ -403,7 +403,8 @@ async function handleAddKeyword(e) {
             >
               Sources RSS
             </button>
-            <button
+            {(selectedFlux)?
+             <button
               className={`tab-btn ${activeTab === "articles" ? "active" : ""}`}
               onClick={() => {
                 setActiveTab("articles")
@@ -412,6 +413,8 @@ async function handleAddKeyword(e) {
             >
               Articles
             </button>
+            :null}
+        
             <button
               className={`tab-btn ${activeTab === "keywords" ? "active" : ""}`}
               onClick={() => setActiveTab("keywords")}
@@ -477,6 +480,7 @@ async function handleAddKeyword(e) {
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5S13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" />
               </svg>
+              
               <input
                 type="text"
                 placeholder={
@@ -741,10 +745,7 @@ async function handleAddKeyword(e) {
                               </div>
                               <p className="source-card-desc">{source.description}</p>
                               <div className="source-card-meta">
-                                <span className="article-count">
-                                  {articles.filter((a) => a.article.idFlux === source.idFlux).length} article
-                                  {articles.filter((a) => a.article.idFlux === source.idFlux).length > 1 ? "s" : ""}
-                                </span>
+                               
                                 <span className={`status-badge ${source.statut}`}>{source.statut}</span>
                               </div>
                             </div>
