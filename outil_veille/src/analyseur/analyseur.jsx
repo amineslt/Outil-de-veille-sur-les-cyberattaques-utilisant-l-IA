@@ -86,6 +86,7 @@ export default function AnalyzerReview() {
   const [editedNiveauRisque, setEditedNiveauRisque] = useState('')
   const [isEditing, setIsEditing] = useState(false)
   const [showSuccessPopup, setShowSuccessPopup] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
   const formatDate = (dateString) => {
     if (!dateString) return 'N/A'
     const date = new Date(dateString)
@@ -148,7 +149,7 @@ export default function AnalyzerReview() {
         },
         body:JSON.stringify({
             statut:status,
-            commentaire: commentaire||analyse.validation.commentaire,
+            commentaire: commentaire||"pas de commentaire",
             typeModif: typeModif|| analyse.validation.typeModif,
             nouveauTypeAttaque:analyse.typeAttaque,
             nouveauResume: editedResume ||analyse.resume,
@@ -236,6 +237,7 @@ export default function AnalyzerReview() {
     }
   }
   async function lanceranalyse(){
+     setIsLoading(true)
      try{
       let response=await fetch(`http://localhost:8080/api/veille/analyser`,{
         method:"POST",
@@ -249,12 +251,13 @@ export default function AnalyzerReview() {
         setTimeout(() => {
             setShowSuccessPopup(false)
             resetModal()
+            setIsLoading(false)
         }, 2000)
       }
 
     }catch(error){
       console.log(error)
-
+      setIsLoading(false)
     }
   }
   useEffect(()=>{
@@ -360,9 +363,21 @@ export default function AnalyzerReview() {
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
-            <div className='filter-group'>
-                <button onClick={()=>{lanceranalyse()}} className='view-details-btn'>
-                  Lancer l'analyse
+           <div className='filter-group'>
+                <button 
+                  onClick={()=>{lanceranalyse()}} 
+                  className='view-details-btn'
+                  disabled={isLoading}
+                  style={{ opacity: isLoading ? 0.7 : 1 }}
+                >
+                  {isLoading ? (
+                    <div className="button-loader">
+                      <span className="spinner"></span>
+                      Analyse en cours...
+                    </div>
+                  ) : (
+                    'Lancer l\'analyse'
+                  )}
                 </button>
             </div>
             
