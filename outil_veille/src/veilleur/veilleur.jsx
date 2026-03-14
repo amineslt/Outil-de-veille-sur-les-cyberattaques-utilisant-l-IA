@@ -125,6 +125,7 @@ export default function SourcesManagement() {
           description: "",
         })
         setShowAddModal(false)
+        getflux()
       } else {
         if (errorRef.current && errorMessageRef.current) {
           errorMessageRef.current.textContent = "Erreur lors de l'ajout de la source"
@@ -459,14 +460,14 @@ async function handleAddKeyword(e) {
               onClick={() => lancerCollecte()}
             >
               
-              <span>Lancer la collect de articles</span>
+              <span>Lancer la collecte des articles</span>
             </button>
                <button
               className="lance"
               onClick={() => filltrearticles()}
             >
               
-              <span>Lancer le filltrage</span>
+              <span>Lancer le filtrage</span>
             </button>
             </>
               :null}

@@ -228,9 +228,7 @@ export default function VisiteurPage() {
                   </div>
                 </div>
                 <div className="source-footer">
-                  <span className="analyses-count">
-                    {analyses.filter((a) =>  a.statut === 'validé').length} analyse(s)
-                  </span>
+                  
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="arrow-icon">
                     <path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z" />
                   </svg>

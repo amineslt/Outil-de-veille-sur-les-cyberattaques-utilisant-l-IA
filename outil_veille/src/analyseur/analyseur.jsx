@@ -519,7 +519,12 @@ export default function AnalyzerReview() {
                 <span className="detail-label">Date d'analyse:</span>
                 <span className="detail-value">{formatDate(selectedAnalyse.dateAnalyse)}</span>
               </div>
-
+                <div className="detail-row">
+                  <span className="detail-label">source url:</span>
+                  <a href={selectedAnalyse.article.urlSource} target="_blank" rel="noopener noreferrer" className="detail-link">
+                    {selectedAnalyse.article.urlSource}
+                  </a>
+              </div>
               {!selectedAnalyse.statut && (
                 <>
                   <div className="detail-row">
